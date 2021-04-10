@@ -42,21 +42,21 @@ while main:
 
     print()
     lista=" " 
-    # Αλλαξε τα n και m για να αλλάξουν τα Fizz Buzz του παιχνιδιού
-    n=3
-    m=5 
+    # Αλλαξε τα F και B για να αλλάξουν τα Fizz Buzz του παιχνιδιού
+    F=3
+    B=5 
     #----------------------------------------------------------------     
     for i in range(x_start,x_end+1):
 
         if i==0:
             lista += " "+str(i)+" , "
-        elif i%n==0 and i%m==0 :
+        elif i%F==0 and i%B==0 :
             lista+=" FizzBuzz "+" , "
             #print("FizzBuzz")
-        elif i%n==0 :
+        elif i%F==0 :
             lista +=" Fizz "+" , "
             #print("Fizz")
-        elif i%m==0:
+        elif i%B==0:
             lista +=" Buzz "+" , "
             #print("Buzz")
         else:
