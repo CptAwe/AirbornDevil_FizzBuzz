@@ -21,21 +21,16 @@ def FizzBuzz(start, end):
     It does NOT make any sanity checks.
     """
     output = []
-    for i in range(x_start,x_end+1):
+    for i in range(start, end+1):
         if i==0:
-            # lista += " "+str(i)+" , "
             output.append(i)
         elif i%F==0 and i%B==0 :
-            # lista+=" FizzBuzz "+" , "
             output.append("FizzBuzz")
         elif i%F==0 :
-            # lista +=" Fizz "+" , "
             output.append("Fizz")
         elif i%B==0:
-            # lista +=" Buzz "+" , "
             output.append("Buzz")
         else:
-            # lista += " "+str(i)+" "+" , "
             output.append(i)
     
     return output
@@ -70,7 +65,8 @@ while main:
                 # Επιτυχής εισαγωγή
                 input_nums[i] = input_number
                 break
-
+        
+        # Έλεγχος για ορθή λογική εισαγωγής δεδομένων
         if input_nums["κάτω"] > input_nums["πάνω"] :
             print("\nΔεν δώσατε σωστή τιμή...")
             print("\nΠρέπει το πάνω όριο να είναι μεγαλύτερο από το κάτω...")
@@ -79,17 +75,14 @@ while main:
         else:
             break
     
-    x_start = input_nums["κάτω"]
-    x_end = input_nums["πάνω"]
     print()
 
-    lista = FizzBuzz(x_start, x_end)
+    lista = FizzBuzz(input_nums["κάτω"], input_nums["πάνω"])
     lista = str(lista)
 
-    lista = lista.strip("[]")       #για να βγάλει τα "[" και "]" από την αρχή
+    lista = lista.strip("[]")       #για να βγάλει τα "[" και "]" από την αρχή και το τέλος
     lista = lista.replace("'", "")  #για να βγάλει τα " ' " από τα Fizz και Buzz
-    # lista=lista.lstrip(" ")    #για να βγάλει το " "  από την αρχή.  
-    # lista=lista.rstrip(", ")   #για να βγάλει το " , " από το τέλος.
+    
     print(lista)
     print('\nΘέλετε να συνεχίσετε ?')
     check=True
@@ -99,7 +92,8 @@ while main:
 q+Enter: Τερματισμός :  \n'))
         if w=='':
             break
-        elif w=='q' or w=='Q':
+        # elif w=='q' or w=='Q':
+        elif w.lower() == 'q':# <--- Συνηθίζεται να γίνεται έτσι
             main=False
             print('\nΓεια σας...\n')
             break
