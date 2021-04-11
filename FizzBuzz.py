@@ -14,6 +14,32 @@ by AirbornDevil
 F=3
 B=5
 
+
+def FizzBuzz(start, end):
+    """
+    Plays the game Fizzbuzz and returns a list of the results.
+    It does NOT make any sanity checks.
+    """
+    output = []
+    for i in range(x_start,x_end+1):
+        if i==0:
+            # lista += " "+str(i)+" , "
+            output.append(i)
+        elif i%F==0 and i%B==0 :
+            # lista+=" FizzBuzz "+" , "
+            output.append("FizzBuzz")
+        elif i%F==0 :
+            # lista +=" Fizz "+" , "
+            output.append("Fizz")
+        elif i%B==0:
+            # lista +=" Buzz "+" , "
+            output.append("Buzz")
+        else:
+            # lista += " "+str(i)+" "+" , "
+            output.append(i)
+    
+    return output
+
 main=True
 while main:
     print()
@@ -56,33 +82,14 @@ while main:
     x_start = input_nums["κάτω"]
     x_end = input_nums["πάνω"]
     print()
-    lista=" "
-    # [GeoPap] Τις μεταβλητές που ίσως θέλουμε να αλλάζουμε στο μέλλον,
-    # ανάλογα με την περίσταση, συνηθίζεται να τις βάζουμε πάνω πάνω στο
-    # πρόγραμμα, για να τις βρίσκουμε εύκολα.
-    # Αλλαξε τα F και B για να αλλάξουν τα Fizz Buzz του παιχνιδιού
-    # F=3
-    # B=5
-    #----------------------------------------------------------------     
-    for i in range(x_start,x_end+1):
 
-        if i==0:
-            lista += " "+str(i)+" , "
-        elif i%F==0 and i%B==0 :
-            lista+=" FizzBuzz "+" , "
-            #print("FizzBuzz")
-        elif i%F==0 :
-            lista +=" Fizz "+" , "
-            #print("Fizz")
-        elif i%B==0:
-            lista +=" Buzz "+" , "
-            #print("Buzz")
-        else:
-            lista += " "+str(i)+" "+" , "
-            #print(i)
+    lista = FizzBuzz(x_start, x_end)
+    lista = str(lista)
 
-    lista=lista.lstrip(" ")    #για να βγάλει το " "  από την αρχή.  
-    lista=lista.rstrip(", ")   #για να βγάλει το " , " από το τέλος.
+    lista = lista.strip("[]")       #για να βγάλει τα "[" και "]" από την αρχή
+    lista = lista.replace("'", "")  #για να βγάλει τα " ' " από τα Fizz και Buzz
+    # lista=lista.lstrip(" ")    #για να βγάλει το " "  από την αρχή.  
+    # lista=lista.rstrip(", ")   #για να βγάλει το " , " από το τέλος.
     print(lista)
     print('\nΘέλετε να συνεχίσετε ?')
     check=True
@@ -99,3 +106,6 @@ q+Enter: Τερματισμός :  \n'))
         else:
             print('\nΠατήσατε λάθος κουμπί, ξαναπροσπαθήστε...')
             continue
+
+
+
