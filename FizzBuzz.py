@@ -1,4 +1,4 @@
-import numpy as np
+# import numpy as np # Not used
 '''
 Program FizzBuzz
 by AirbornDevil
@@ -10,41 +10,59 @@ by AirbornDevil
 Σε κάθε άλλη περίπτωση εμφανίζουμε τον αριθμό.
 '''
 
-#---------------------------------------------------------------------------------------
-#driver
+# Αλλαξε τα F και B για να αλλάξουν τα Fizz Buzz του παιχνιδιού
+F=3
+B=5
+
 main=True
 while main:
     print()
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") # Για να ξεχωρίζει η κάθε επανάληψη
     print("\nΚαλώς ήρθατε στο FizzBuzz !!!")
     print("\nΘα πρέπει να μου δώσετε τα όρια των αριθμών που θα ελέγξω...")
+
+    """
+    [GeoPap]
+    Αυτό το while-try-except είναι πάρα πολύ βολικό, αλλά το γράφεις δύο φορές και είναι αμαρτία
+    """
+
     while True:
-        try:
-            x_start=int(input('\nΔώστε μου έναν ακέραιο αριθμό για το κάτω όριο : '))
-        except ValueError:
-            print('\nΔεν δώσατε σωστή τιμή...')
-            continue
-        else:
+        input_nums = {
+            "κάτω" : None,
+            "πάνω" : None
+        }
+        for i in input_nums:
             while True:
                 try:
-                    x_end=int(input('\nΔώστε μου έναν ακέραιο για το πάνω όριο : '))
+                    input_number = int(
+                        input('\nΔώστε μου έναν ακέραιο αριθμό για το {which} όριο : '.format(which = i))
+                    )
                 except ValueError:
                     print('\nΔεν δώσατε σωστή τιμή...')
                     continue
-                else:
-                    if x_start > x_end :
-                        print("\nΔεν δώσατε σωστή τιμή...")
-                        print("\nΠρέπει το πάνω όριο να είναι μεγαλύτερο από το κάτω...")
-                        continue
-                    else:
-                        break
-            break
+                
+                # Επιτυχής εισαγωγή
+                input_nums[i] = input_number
+                break
 
+        if input_nums["κάτω"] > input_nums["πάνω"] :
+            print("\nΔεν δώσατε σωστή τιμή...")
+            print("\nΠρέπει το πάνω όριο να είναι μεγαλύτερο από το κάτω...")
+            input_nums = {}
+            continue
+        else:
+            break
+    
+    x_start = input_nums["κάτω"]
+    x_end = input_nums["πάνω"]
     print()
-    lista=" " 
+    lista=" "
+    # [GeoPap] Τις μεταβλητές που ίσως θέλουμε να αλλάζουμε στο μέλλον,
+    # ανάλογα με την περίσταση, συνηθίζεται να τις βάζουμε πάνω πάνω στο
+    # πρόγραμμα, για να τις βρίσκουμε εύκολα.
     # Αλλαξε τα F και B για να αλλάξουν τα Fizz Buzz του παιχνιδιού
-    F=3
-    B=5 
+    # F=3
+    # B=5
     #----------------------------------------------------------------     
     for i in range(x_start,x_end+1):
 
